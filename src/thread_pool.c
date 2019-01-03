@@ -96,7 +96,7 @@ retcode thp_pool_init( int           threads_count,
   thp_pool_t    * thpool = NULL;
 
   TRY( athpool == NULL );
-  TRY( threads_count < 0 );
+  TRY( threads_count <= 0 );
 
   /* Make new thread pool */
   thpool = (thp_pool_t *)malloc( sizeof(thp_pool_t) );
@@ -112,7 +112,7 @@ retcode thp_pool_init( int           threads_count,
 
   /* Make threads in pool */
   thpool->threads = (thp_thread_t **)malloc( 
-                                            sizeof(thp_thread_t *) * threads_count );
+                        sizeof(thp_thread_t *) * threads_count );
   TRY_GOTO( thpool->threads == NULL, err_fail_alloc_threads );
   state = 3;
 
