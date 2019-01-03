@@ -19,8 +19,8 @@ typedef enum
 #define TRY( _cond ) if( _cond ) { goto _label_catch_end; }
 #define TRY_GOTO( _cond, _label ) if( _cond ) { goto _label; }
 #define CATCH( _label ) \
- goto _label_catch_end; \
- _label:
+  goto _label_catch_end; \
+  _label:
 #define CATCH_END  _label_catch_end:
 
 #endif /* _TYPES_H_ */

@@ -45,7 +45,7 @@ bool dlist_is_empty( dlist_t * head )
 }
 
 void dlist_insert_after( dlist_node_t * pivot_node,
-                            dlist_node_t * add_node )
+                         dlist_node_t * add_node )
 {
   pivot_node->next->prev = add_node;
   add_node->next         = pivot_node->next;

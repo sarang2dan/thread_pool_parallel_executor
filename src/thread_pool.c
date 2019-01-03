@@ -88,7 +88,7 @@ static thp_job_t * thp_jobq_deque( thp_jobq_t * jq );
 static void thp_jobq_destroy( thp_jobq_t * jq );
 
 retcode thp_pool_init( int           threads_count, 
-                   thp_pool_t ** athpool )
+                       thp_pool_t ** athpool )
 {
   int             i     = 0;
   int             state = 0;
@@ -110,9 +110,9 @@ retcode thp_pool_init( int           threads_count,
   TRY( ret != SUCCESS );
   state = 2;
 
-   /* Make threads in pool */
+  /* Make threads in pool */
   thpool->threads = (thp_thread_t **)malloc( 
-                    sizeof(thp_thread_t *) * threads_count );
+                                            sizeof(thp_thread_t *) * threads_count );
   TRY_GOTO( thpool->threads == NULL, err_fail_alloc_threads );
   state = 3;
 
@@ -147,19 +147,19 @@ retcode thp_pool_init( int           threads_count,
   *athpool = thpool;
 
   return SUCCESS;
-  
+
   CATCH( err_fail_alloc_thpool )
     {
       fprintf( stderr,
-              "%s(): could not allocate memory for job queue\n",
-              __func__ );
+               "%s(): could not allocate memory for job queue\n",
+               __func__ );
     }
   CATCH( err_fail_alloc_threads )
-   {
-     fprintf( stderr,
-             "%s(): Could not allocate memory for threads \n",
-             __func__ );
-   }
+    {
+      fprintf( stderr,
+               "%s(): Could not allocate memory for threads \n",
+               __func__ );
+    }
   CATCH_END;
 
   switch( state )
