@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <string.h>
 
 #if defined(__linux__)
 #include <sys/prctl.h>
